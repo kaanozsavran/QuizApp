@@ -8,9 +8,6 @@ Soru.prototype.cevabiKontrolEt = function (cevap) {
     return cevap === this.dogruCevap;
 }
 
-let soru1 = new Soru("Hangisi js paket yönetim uygulamasıdır?", { a: "Node.js", b: "nuget", c: "npm" }, "c");
-let soru2 = new Soru("Hangisi .net paket yönetim uygulamasıdır?", { a: "Node.js", b: "nuget", c: "npm" }, "b");
-
 let sorular = [
     new Soru("1-Hangisi js paket yönetim uygulamasıdır?", { a: "Node.js", b: "nuget", c: "npm" }, "c"),
     new Soru("2-Hangisi javascript paket yönetim uygulamasıdır?", { a: "Node.js", b: "nuget", c: "npm" }, "c"),
@@ -29,8 +26,9 @@ Quiz.prototype.soruGetir = function () {
 
 const quiz = new Quiz(sorular);
 
-document.querySelector(".btn-start").addEventListener('click', function () {
+document.querySelector(".btn_start").addEventListener('click', function () {
     if (quiz.sorular.length != quiz.soruIndex) {
+        document.querySelector(".quiz_box").classList.add("active");
         console.log(quiz.soruGetir());
         quiz.soruIndex += 1;
     } else {
