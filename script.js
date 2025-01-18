@@ -53,6 +53,15 @@ function optionSelected(option) {
     } else {
         option.classList.add("incorrect");
         option.insertAdjacentHTML("beforeend", ui.incorrectIcon);
+
+        // Doğru cevabı bul ve "correct" sınıfı ekle
+        for (let i = 0; i < ui.option_list.children.length; i++) {
+            let secenek = ui.option_list.children[i];
+            if (secenek.querySelector("span b").textContent === soru.dogruCevap) {
+                secenek.classList.add("correct");
+                secenek.insertAdjacentHTML("beforeend", ui.correctIcon);
+            }
+        }
     }
 
     for (let i = 0; i < ui.option_list.children.length; i++) {
